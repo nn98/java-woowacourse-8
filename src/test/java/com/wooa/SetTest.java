@@ -20,4 +20,9 @@ class SetTest {
         numbers.add(3);
     }
 
+    @Test
+    void sizeTest() {
+        assertThat(numbers.size()).isEqualTo(3);
+    }
+
 }
