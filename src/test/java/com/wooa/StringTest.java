@@ -36,7 +36,7 @@ class StringTest {
     void charAtExceptionTest() {
         String testString = "abc";
         assertThatThrownBy(() -> testString.charAt(3)).isInstanceOf(IndexOutOfBoundsException.class)
-                .hasMessageContaining("Index 3", "length 3");
+                .hasMessageContaining("Index \\d+", "length \\d+");
     }
 
 }
