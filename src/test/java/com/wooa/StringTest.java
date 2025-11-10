@@ -1,6 +1,7 @@
 package com.wooa;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,6 +30,13 @@ class StringTest {
     void chatAtTest(int index, char target) {
         String testString = "abc";
         assertThat(testString.charAt(index)).isEqualTo(target);
+    }
+
+    @Test
+    void charAtExceptionTest() {
+        String testString = "abc";
+        assertThatThrownBy(() -> testString.charAt(3)).isInstanceOf(IndexOutOfBoundsException.class)
+                .hasMessageContaining("Index 3", "length 3");
     }
 
 }
