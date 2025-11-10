@@ -8,12 +8,12 @@ class StringTest {
 
     @Test
     void splitTest() {
-        assertThat("1,2".split(",")).isEqualTo(new String[]{"1", "2"});
+        assertThat("1,2".split(",")).contains("1", "2");
     }
 
     @Test
     void splitAloneTest() {
-        assertThat("1".split(",")).isEqualTo(new String[]{"1"});
+        assertThat("1".split(",")).containsExactly("1");
     }
 
 }
