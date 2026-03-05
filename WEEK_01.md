@@ -1,7 +1,12 @@
-## `11F 구구 & 리사 구리마을 / 14조`   
-## [글렌](https://github.com/dhyepark) [라이](https://github.com/dhyepark) [나무](https://github.com/symflee) [캐리](https://github.com/tjdakf)
+# **1주 차 - 온보딩**
 
-## **1주 차 - 온보딩**
+`02월 24일 ~ 03월 03일`
+
+---
+
+## `11F 구구 & 리사 구리마을 / 14조`   
+
+## [글렌](https://github.com/dhyepark) [라이](https://github.com/dhyepark) [나무](https://github.com/symflee) [캐리](https://github.com/tjdakf)
 
 1. ### **사용자가 있는 Gemini 웹앱 출시하기**
 
