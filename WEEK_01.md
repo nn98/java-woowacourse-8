@@ -25,4 +25,5 @@
 
 3. ### **유연성 강화 목표 설정**
 
-   [유연성 강화 목표 설정](https://www.notion.so/31991ae430cb808bb91bf56ac42dba1d?pvs=21)
+   [유연성 강화 목표 설정](https://www.notion.so/31991ae430cb808bb91bf56ac42dba1d?pvs=21)  
+   [한 발짝 스터디]() 
