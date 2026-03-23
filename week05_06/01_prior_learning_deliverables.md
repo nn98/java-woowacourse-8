@@ -50,7 +50,30 @@ class InputView - 필요한 입력을 파싱할 뷰
     List<String> readPlayerNicknames()
     List<Integer> readCoordinate()
 
+class JanggiRunner
+    void initialJanggi
+    void initialPlayers
+    void printInitialSetup
+    void runGame
+        void playerTurn
+        void printBoardStatus
+        ...
+    void printResult
+
 ```
+
+- 실행 흐름
+    - Board() 초기화. 기본값(원래 장기 배치) 에 맞춰 초기 상태 생성 `Map<Piece, Position> piecePositions`
+    - 생성된 게임판의 초기 상태를 출력 `BoardDTO`
+    - 플레이할 사용자들 닉네임 입력 `Player`
+    - 각 플레이어의 턴 교대로 반복
+        - 게임판 상태 출력 `BoardDTO`
+        - 이동할 기물 선택 `String label`
+        - 기물의 이동 가능한 위치 `List<Positon>` 을 반영해 출력 `BoardDTO`
+        - 이동할 위치 선택 `String input` -> `int x` / `int y`
+        - 이동한 결과 반영 `Board`
+        - 이동한 결과 출력 `BoardDTO`
+    - 게임판에 장이 1개가 될 때 까지 반복
 
 ```mermaid
 classDiagram
@@ -130,19 +153,6 @@ classDiagram
     BoardDTO ..> Board : depends
     InputView ..> Player : creates/uses
 ```
-
-  - 실행 흐름 
-    - Board() 초기화. 기본값(원래 장기 배치) 에 맞춰 초기 상태 생성 `Map<Piece, Position> piecePositions`
-    - 생성된 게임판의 초기 상태를 출력 `BoardDTO`
-    - 플레이할 사용자들 닉네임 입력 `Player`
-    - 각 플레이어의 턴 교대로 반복 
-      - 게임판 상태 출력 `BoardDTO`
-      - 이동할 기물 선택 `String label`
-      - 기물의 이동 가능한 위치 `List<Positon>` 을 반영해 출력 `BoardDTO`
-      - 이동할 위치 선택 `String input` -> `int x` / `int y`
-      - 이동한 결과 반영 `Board`
-      - 이동한 결과 출력 `BoardDTO`
-    - 게임판에 장이 1개가 될 때 까지 반복 
 
 ---
 
