@@ -38,7 +38,23 @@ record Positon - 기물 및 빈 칸의 좌표 표현
     int y - 열 번호
     @Override equals(Position position) - 다른 좌표와의 비교
 
+record BoardDTO - 배치된 게임판의 상태 전달
+    List<List<String>> boardStatus
+    BoardDTO from (Board board)
+
+class Player - 장기를 플레이할 사용자
+    String nickname
+
 ```
+
+  - 실행 흐름 
+    - Board() 초기화. 기본값(원래 장기 배치) 에 맞춰 초기 상태 생성 `Map<Piece, Position> piecePositions`
+    - 생성된 게임판의 초기 상태를 출력 `BoardDTO`
+    - 플레이할 사용자들 닉네임 입력 `Player`
+    - 각 플레이어의 턴 교대로 반복 
+      - 게임판 상태 출력 `BoardDTO`
+      - 이동할 기물 선택 `String label`
+
 
 - [x] 상태 관리 책임에 대한 내 의견
 - [x] 기물별 이동 규칙 정리표
