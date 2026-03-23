@@ -40,10 +40,15 @@ record Positon - 기물 및 빈 칸의 좌표 표현
 
 record BoardDTO - 배치된 게임판의 상태 전달
     List<List<String>> boardStatus
-    BoardDTO from (Board board)
+    BoardDTO from(Board board)
+    BoardDTO of(Board board, List<Position> movablePositions)
 
 class Player - 장기를 플레이할 사용자
     String nickname
+
+class InputView - 필요한 입력을 파싱할 뷰
+    List<String> readPlayerNicknames()
+    List<Integer> readCoordinate()
 
 ```
 
@@ -54,7 +59,11 @@ class Player - 장기를 플레이할 사용자
     - 각 플레이어의 턴 교대로 반복 
       - 게임판 상태 출력 `BoardDTO`
       - 이동할 기물 선택 `String label`
-
+      - 기물의 이동 가능한 위치 `List<Positon>` 을 반영해 출력 `BoardDTO`
+      - 이동할 위치 선택 `String input` -> `int x` / `int y`
+      - 이동한 결과 반영 `Board`
+      - 이동한 결과 출력 `BoardDTO`
+    - 게임판에 장이 1개가 될 때 까지 반복 
 
 - [x] 상태 관리 책임에 대한 내 의견
 - [x] 기물별 이동 규칙 정리표
