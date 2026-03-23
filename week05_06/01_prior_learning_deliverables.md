@@ -52,6 +52,85 @@ class InputView - 필요한 입력을 파싱할 뷰
 
 ```
 
+```mermaid
+classDiagram
+    class Board {
+        -Map~Piece, Position~ piecePositions
+        +Board()
+        +choice(label: String)
+        +move(label: String, x: int, y: int)
+        +capture(label: String, x: int, y: int)
+    }
+
+    class Piece {
+        <<abstract>>
+        -String label
+        -PieceType type
+        +movablePositions()* List~Position~
+    }
+
+    class ConcretePiece {
+        +movablePositions() List~Position~
+    }
+
+    class PieceType {
+        <<enumeration>>
+        SOLDIER
+        CHARIOT
+        HORSE
+    }
+
+    class Movements {
+        -List~Direction~ directions
+        +movablePositions() List~Position~
+    }
+
+    class Direction {
+        <<enumeration>>
+        E
+        W
+        S
+        N
+        NE
+        NW
+        SE
+        SW
+    }
+
+    class Position {
+        <<record>>
+        -int x
+        -int y
+        +equals(position: Position) boolean
+    }
+
+    class BoardDTO {
+        <<record>>
+        -List~List~String~~ boardStatus
+        +from(board: Board)$ BoardDTO
+        +of(board: Board, movablePositions: List~Position~)$ BoardDTO
+    }
+
+    class Player {
+        -String nickname
+    }
+
+    class InputView {
+        +readPlayerNicknames() List~String~
+        +readCoordinate() List~Integer~
+    }
+
+    %% Relationships
+    Board *-- Piece : contains
+    Board *-- Position : uses
+    Piece <|-- ConcretePiece : extends
+    Piece *-- PieceType : has
+    PieceType *-- Movements : has
+    Movements *-- Direction : uses
+    BoardDTO ..> Board : depends
+    InputView ..> Player : creates/uses
+```
+
   - 실행 흐름 
     - Board() 초기화. 기본값(원래 장기 배치) 에 맞춰 초기 상태 생성 `Map<Piece, Position> piecePositions`
     - 생성된 게임판의 초기 상태를 출력 `BoardDTO`
@@ -64,6 +143,8 @@ class InputView - 필요한 입력을 파싱할 뷰
       - 이동한 결과 반영 `Board`
       - 이동한 결과 출력 `BoardDTO`
     - 게임판에 장이 1개가 될 때 까지 반복 
+
+---
 
 - [x] 상태 관리 책임에 대한 내 의견
 - [x] 기물별 이동 규칙 정리표
