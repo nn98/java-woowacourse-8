@@ -17,9 +17,17 @@ abstract class Piece - 기물의 라벨, 이동을 관리
     String label - 동일 기물도 특정하기 위한 별도의 이름
     // abstract List<Position> movablePositions() - 이동 가능한 좌표들 리턴
     
-class <T> extends Piece
+class <T> extends Piece - 기물의 구현체, 특정 기물 표현
     List<MovementRule> movementRules - 해당 기물의 이동 규칙(이동 경로의 리스트) 
     // @Override List<Position> movablePositions() - 해당 기물의 이동 가능한 좌표를 리턴
+
+enum MovementRule 
+    SOLDIERS(Positon(0,1), Position(1,0) ... - 기물별 이동 규칙
+
+record Positon - 기물 및 빈 칸의 좌표 표현
+    int x - 행 번호
+    int y - 열 번호
+    @Override equals(Position position) - 다른 좌표와의 비교
 
 ```
 
