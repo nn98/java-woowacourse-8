@@ -15,6 +15,7 @@ class Board - 게임판을 관리, 기물의 `좌표`와 `이동`을 관리
 abstract class Piece - 기물의 라벨, 이동을 관리
     String label - 동일 기물도 특정하기 위한 별도의 이름
     PieceType type - 기물의 종류(졸 포 차 상 마 사 장)
+    Player owner - 해당 기물의 주인 저장, 이후 게임 규칙에 사용
     abstract List<Position> movablePositions() - 이동 가능한 `위치`들
     
 class <T> extends Piece - 기물의 구현체, 특정 기물 표현
