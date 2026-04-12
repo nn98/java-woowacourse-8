@@ -490,14 +490,14 @@ TDA 위반 과정에서 실질적인 변화가 크지 않음을 확인.
 > 점수 집계 방식/기물별 점수/초나라 어드밴티지 등 점수 계산과 관련된 규칙의 변경 발생 가정
 
 - #### TDA 를 위배한 상태에서의 점수 계산 기능 수정 결과
-```json
+```jsonpath
 git diff --stat exp2_non_TDA_function exp2_non_TDA
  src/main/java/janggi/domain/piece/PieceScoreCalculator.java | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 ```
 
 - #### TDA 를 준수한 상태에서의 점수 계산 기능 수정 결과
-```json
+```java
 git diff --stat exp2_TDA_function exp2_TDA
  src/main/java/janggi/domain/game/Side.java       | 2 +-
  src/main/java/janggi/domain/piece/PieceType.java | 2 +-
